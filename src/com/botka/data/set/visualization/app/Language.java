@@ -14,8 +14,7 @@ package com.botka.data.set.visualization.app;
  * @author Jake Botka
  *
  */
-public enum Language
-{
+public enum Language {
 
 	English, Spanish, French, Chinese
 }

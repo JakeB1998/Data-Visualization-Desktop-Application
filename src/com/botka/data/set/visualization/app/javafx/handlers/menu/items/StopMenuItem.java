@@ -23,29 +23,25 @@ import javafx.stage.Stage;
  * @author Jake Botka
  *
  */
-public class StopMenuItem extends MenuItemControl
-{
+public class StopMenuItem extends MenuItemControl {
 
-	
 	private RenderEngine mRenderEngine;
 
 	/**
-	 * @param controllerTransferCallback 
+	 * @param controllerTransferCallback
 	 * 
 	 */
-	public StopMenuItem(Stage stage, ControllerTransferCallback controllerTransferCallback, MenuItem menuItem, FireEventListener callback, RenderEngine renderEngine)
-	{
-		super(stage,controllerTransferCallback, menuItem, callback);
+	public StopMenuItem(Stage stage, ControllerTransferCallback controllerTransferCallback,
+			MenuItem menuItem, FireEventListener callback, RenderEngine renderEngine) {
+		super(stage, controllerTransferCallback, menuItem, callback);
 		this.mRenderEngine = renderEngine;
 	}
 
 	@Override
-	public void handle(ActionEvent arg0)
-	{
+	public void handle(ActionEvent arg0) {
 		super.handle(arg0);
 		if (this.mRenderEngine != null)
 			this.mRenderEngine.haltRenderer();
 	}
-	
-	
+
 }

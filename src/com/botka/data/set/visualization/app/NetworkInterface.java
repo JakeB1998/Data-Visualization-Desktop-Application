@@ -17,46 +17,44 @@ import com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 
 /**
  * 
- *
+ * Utility class to determine if client has an internet connection/
  * @author Jake Botka
  *
  */
-public class NetworkInterface
-{
+public class NetworkInterface {
 	public static final NetworkInterface INSTANCE = new NetworkInterface();
-	public static NetworkInterface getInstance()
-	{
+
+	public static NetworkInterface getInstance() {
 		return INSTANCE;
 	}
 
 	/**
 	 * Default constructor
 	 */
-	private NetworkInterface()
-	{
-		
+	private NetworkInterface() {
+
 	}
-	
+
 	/**
 	 * Connects to the url google.com to test if an internet connection is present.
+	 * 
 	 * @return true if is connected to internet, false otherwise
 	 */
-	public boolean hasInternetConnection()
-	{
+	public boolean hasInternetConnection() {
 
-	    try {
-	        final URL url = new URL("http://www.google.com");
-	        final URLConnection conn = url.openConnection();
-	        conn.connect();
-	        conn.getInputStream().close();
-	        ConsoleLogger.Logger.log(JavaFXMainDriver.class, "connected to internet", true);
-	        return true;
-	    } catch (MalformedURLException e) {
-	        throw new RuntimeException(e);
-	    } catch (IOException e) {
-	        ConsoleLogger.Logger.log(JavaFXMainDriver.class, "Not connected to internet", true);
-	    }
-	    return false;
+		try {
+			final URL url = new URL("http://www.google.com");
+			final URLConnection conn = url.openConnection();
+			conn.connect();
+			conn.getInputStream().close();
+			ConsoleLogger.Logger.log(JavaFXMainDriver.class, "connected to internet", true);
+			return true;
+		} catch (MalformedURLException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			ConsoleLogger.Logger.log(JavaFXMainDriver.class, "Not connected to internet", true);
+		}
+		return false;
 	}
 
 }

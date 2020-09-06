@@ -14,16 +14,14 @@ package com.botka.data.set.visualization.app;
  * @author Jake Botka
  *
  */
-public abstract class Controller implements ControllerTransferCallback
-{
-	protected final static  int CONTROLLER_ID_LENGTH = 6;
+public abstract class Controller implements ControllerTransferCallback {
+	protected final static int CONTROLLER_ID_LENGTH = 6;
 	private final int ID;
 
 	/**
 	 * 
 	 */
-	public Controller(int id)
-	{
+	public Controller(int id) {
 		ID = id;
 		// TODO Auto-generated constructor stub
 	}
