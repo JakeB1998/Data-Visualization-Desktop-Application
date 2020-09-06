@@ -1,47 +1,40 @@
 /*
- * File name:  MenuItem.java
+ * File name:  ButtonControl.java
  *
  * Programmer : Jake Botka
  *
- * Date: Aug 10, 2020
+ * Date: Aug 16, 2020
  *
  */
-package com.botka.data.set.visualization.app.javafx.handlers.menu.items;
+package com.botka.data.set.visualization.app.javafx.handlers.button;
 
-import com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 import com.botka.data.set.visualization.app.ControllerTransferCallback;
 import com.botka.data.set.visualization.app.javafx.components.NodeControls;
 import com.botka.data.set.visualization.app.javafx.handlers.FireEventListener;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 /**
- * Wrapper class for menu item
+ * <insert class description here>
  *
  * @author Jake Botka
  *
  */
-public class MenuItemControl extends NodeControls implements EventHandler<ActionEvent> {
+public class ButtonControl extends NodeControls
+		implements EventHandler<ActionEvent> {
 
-	private MenuItem mMenuItem;
+	private Button mButton;
 	private FireEventListener mFireEventCallback;
 
-	/**
-	 * @param controllerTransferCallback
-	 * 
-	 */
-	public MenuItemControl(Stage stage, ControllerTransferCallback controllerTransferCallback,
-			MenuItem menuItem, FireEventListener callback) {
+	public ButtonControl(Stage stage,
+			ControllerTransferCallback controllerTransferCallback,
+			Button button, FireEventListener callback) {
 		super(stage, controllerTransferCallback);
-		this.mMenuItem = menuItem;
-		this.mFireEventCallback = callback;
-		if (this.mMenuItem != null)
-			this.mMenuItem.setOnAction(this);
-		else
-			ConsoleLogger.Logger.log(getClass(), "Button Control is null", true);
+		this.mButton = button;
 	}
 
 	/**
@@ -50,8 +43,8 @@ public class MenuItemControl extends NodeControls implements EventHandler<Action
 	 * @return
 	 */
 	public boolean show() {
-		if (this.mMenuItem != null) {
-			this.mMenuItem.setVisible(true);
+		if (this.mButton != null) {
+			this.mButton.setVisible(true);
 			return true;
 		}
 		return false;
@@ -63,8 +56,8 @@ public class MenuItemControl extends NodeControls implements EventHandler<Action
 	 * @return
 	 */
 	public boolean hide() {
-		if (this.mMenuItem != null) {
-			this.mMenuItem.setVisible(false);
+		if (this.mButton != null) {
+			this.mButton.setVisible(false);
 			return true;
 		}
 		return false;
@@ -72,8 +65,8 @@ public class MenuItemControl extends NodeControls implements EventHandler<Action
 
 	@Override
 	public String getID() {
-		if (this.mMenuItem != null)
-			return this.mMenuItem.getId();
+		if (this.mButton != null)
+			return this.mButton.getId();
 		return null;
 	}
 
@@ -84,8 +77,8 @@ public class MenuItemControl extends NodeControls implements EventHandler<Action
 	@Override
 	public void handle(ActionEvent event) {
 		if (this.mFireEventCallback != null) {
-			if (this.mMenuItem != null) {
-				this.mFireEventCallback.onEventFire(this.mMenuItem.getId());
+			if (this.mButton != null) {
+				this.mFireEventCallback.onEventFire(this.mButton.getId());
 			}
 		}
 	}
@@ -94,8 +87,8 @@ public class MenuItemControl extends NodeControls implements EventHandler<Action
 	 * 
 	 * @return
 	 */
-	public MenuItem getMenuItem() {
-		return this.mMenuItem;
+	public Button getMenuItem() {
+		return this.mButton;
 	}
 
 	/**

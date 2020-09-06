@@ -6,7 +6,7 @@
  * Date: Aug 4, 2020
  *
  */
-package com.botka.data.set.visualization.app.javafx.handlers.menu.items;
+package com.botka.data.set.visualization.app.javafx.components;
 
 import com.botka.data.set.visualization.app.Controller;
 import com.botka.data.set.visualization.app.ControllerTransferCallback;

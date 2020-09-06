@@ -18,34 +18,30 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 /**
- * <insert class description here>
+ * Wrapper class for menu item
  *
  * @author Jake Botka
  *
  */
-public class StartMenuItem extends MenuItemControl
-{
-	
+public class StartMenuItem extends MenuItemControl {
+
 	private RenderEngine mRenderEngine;
 
 	/**
 	 * 
 	 */
-	public StartMenuItem(Stage stage, ControllerTransferCallback controllerTransferCallback, MenuItem menuItem, FireEventListener callback, RenderEngine renderEngine)
-	{
-		super(stage,controllerTransferCallback, menuItem, callback);
+	public StartMenuItem(Stage stage, ControllerTransferCallback controllerTransferCallback,
+			MenuItem menuItem, FireEventListener callback, RenderEngine renderEngine) {
+		super(stage, controllerTransferCallback, menuItem, callback);
 		this.mRenderEngine = renderEngine;
 	}
 
 	@Override
-	public void handle(ActionEvent arg0)
-	{
+	public void handle(ActionEvent arg0) {
 		super.handle(arg0);
-		
+
 		if (this.mRenderEngine != null)
 			this.mRenderEngine.startRenderer();
 	}
-	
-	
 
 }

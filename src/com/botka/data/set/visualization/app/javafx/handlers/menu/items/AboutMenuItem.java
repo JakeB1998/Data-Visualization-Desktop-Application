@@ -20,13 +20,12 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 /**
- * <insert class description here>
+ * Wrapper class for menu item
  *
  * @author Jake Botka
  *
  */
-public class AboutMenuItem extends MenuItemControl
-{
+public class AboutMenuItem extends MenuItemControl {
 
 	private MenuItem mMenuItem;
 	private FireEventListener mFireEventCallback;
@@ -35,24 +34,21 @@ public class AboutMenuItem extends MenuItemControl
 	/**
 	 * 
 	 */
-	public AboutMenuItem(Stage stage,ControllerTransferCallback controllerTransferCallback, MenuItem menuItem, FireEventListener callback)
-	{
-		super(stage, controllerTransferCallback, menuItem,callback);
-		
+	public AboutMenuItem(Stage stage, ControllerTransferCallback controllerTransferCallback,
+			MenuItem menuItem, FireEventListener callback) {
+		super(stage, controllerTransferCallback, menuItem, callback);
+
 	}
 
 	@Override
-	public void handle(ActionEvent arg0)
-	{
+	public void handle(ActionEvent arg0) {
 		super.handle(arg0);
 		final String author = "Jake Michael Botka";
 		Properties systemProp = System.getProperties();
-		if (systemProp != null)
-		{
+		if (systemProp != null) {
 			String[] arr = new String[systemProp.size()];
 		}
-		//TODO Finish Method
+		// TODO Finish Method
 	}
-	
-	
+
 }

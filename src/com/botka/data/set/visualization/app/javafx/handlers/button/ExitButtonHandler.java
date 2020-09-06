@@ -30,122 +30,106 @@ import javafx.event.EventHandler;
  * @author Jake Botka
  *
  */
-public class ExitButtonHandler implements EventHandler<ActionEvent>, Serializable, Savable<ExitButtonHandler>
-{
+public class ExitButtonHandler
+		implements EventHandler<ActionEvent>, Serializable, Savable<ExitButtonHandler> {
 
 	private static final long serialVersionUID = -107077907428293204L;
 	private static final File FILE = new File("exitButtonEventCount" + ".txt");
 	private AtomicInteger mEventCount;
-	 
+
 	/**
 	 * Constructor
 	 */
-	public ExitButtonHandler()
-	{
+	public ExitButtonHandler() {
 		this.mEventCount = new AtomicInteger();
 		if (!FILE.exists())
-			try
-			{
+			try {
 				FILE.createNewFile();
-			} catch (IOException e)
-			{
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
+
 		this.readFile();
 		this.save();
-		
+
 	}
 
 	@Override
 	/**
 	 * Event handler implementation
 	 */
-	public void handle(ActionEvent event)
-	{
+	public void handle(ActionEvent event) {
 		this.mEventCount.incrementAndGet();
 		this.save();
 		ConsoleLogger.Logger.log(getClass(), "Application qued to exit", true);
 		System.exit(0);
 	}
-	
+
 	/**
 	 * Reads data from the variable: FILE
 	 */
-	public void readFile()
-	{
-		if (FILE.exists() && FILE.canRead())
-		{
-			if (FILE.length() > 0)
-			{
-				byte[] arr = new byte[(int)FILE.length()];
+	public void readFile() {
+		if (FILE.exists() && FILE.canRead()) {
+			if (FILE.length() > 0) {
+				byte[] arr = new byte[(int) FILE.length()];
 				FileInputStream fileIn = null;
-				try
-				{
+				try {
 					fileIn = new FileInputStream(FILE);
 					fileIn.read(arr);
-					
+
 					Integer data = Deserializer.getDeserializer().deserialize(arr);
-					if (data != null)
-					{
+					if (data != null) {
 						int nData = data.intValue();
-						
+
 						data = null;
 						fileIn = null;
 						this.mEventCount.set(nData);
 						ConsoleLogger.Logger.log(getClass(), "File contents read: " + nData, true);
 					}
-					
-				} catch (FileNotFoundException e)
-				{
+
+				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 					System.out.println(e.getMessage());
-				} catch (IOException e)
-				{
+				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} catch (ClassNotFoundException e)
-				{
+				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-			
+
 		}
 	}
 
 	@Override
-	public void save()
-	{
-		this.save(FILE);
-		
+	public boolean save() {
+		return this.save(FILE);
 	}
 
 	@Override
-	public void save(File file)
-	{
-		if (file.canWrite())
-		{
-			try
-			{
+	public boolean save(File file) {
+		if (file.canWrite()) {
+			try {
 				FileOutputStream fileOut = new FileOutputStream(file);
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 				objectOut.writeObject(new Integer(this.mEventCount.get()));
-				ConsoleLogger.Logger.log(getClass(), "Savable Interface Save method called: Object was save successfully.", true);
-			} catch (FileNotFoundException e)
-			{
+				ConsoleLogger.Logger.log(getClass(),
+						"Savable Interface Save method called: Object was save successfully.",
+						true);
+				return true;
+			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (IOException e)
-			{
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			this.mEventCount.byteValue();
 		}
-		
+		return false;
 	}
 
 }

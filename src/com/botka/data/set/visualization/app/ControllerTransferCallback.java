@@ -9,13 +9,12 @@
 package com.botka.data.set.visualization.app;
 
 /**
- * <insert class description here>
+ * Interface for callbacjs to transfer data to the controller
  *
  * @author Jake Botka
  *
  */
-public interface ControllerTransferCallback
-{
+public interface ControllerTransferCallback {
 
 	void onTransfer(Object data, Class type);
 
