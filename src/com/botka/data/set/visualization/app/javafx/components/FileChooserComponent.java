@@ -10,10 +10,9 @@ package com.botka.data.set.visualization.app.javafx.components;
 
 import java.io.File;
 
-import com.botka.data.set.visualization.api.util.IDGenerator;
-
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import main.com.botka.data.set.visualization.api.util.IDGenerator;
 
 /**
  * File chooser component to handle interfacing with the computer's file system

@@ -26,26 +26,6 @@ import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import com.botka.data.set.visualization.api.ExecuteInMainThreadManager;
-import com.botka.data.set.visualization.api.IRunOnMainThread;
-import com.botka.data.set.visualization.api.data.DataSet;
-import com.botka.data.set.visualization.api.loggers.ConsoleLogger;
-import com.botka.data.set.visualization.api.readers.FileReader;
-import com.botka.data.set.visualization.api.render.engine.RenderEngine;
-import com.botka.data.set.visualization.api.sort.ArraySorter;
-import com.botka.data.set.visualization.api.sort.BubbleSort;
-import com.botka.data.set.visualization.api.sort.IFinishedListener;
-import com.botka.data.set.visualization.api.sort.SelectionSort;
-import com.botka.data.set.visualization.api.sort.Sort;
-import com.botka.data.set.visualization.api.sound.engine.Audio;
-import com.botka.data.set.visualization.api.sound.engine.AudioEngine;
-import com.botka.data.set.visualization.api.sound.engine.AudioFile;
-import com.botka.data.set.visualization.api.sound.engine.IAudioListener;
-import com.botka.data.set.visualization.api.sound.engine.IPlayAudio;
-import com.botka.data.set.visualization.api.step.StepOperation;
-import com.botka.data.set.visualization.api.visualizer.JavaFXVisualizer;
-import com.botka.data.set.visualization.api.visualizer.Visualizer;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Group;
@@ -55,6 +35,25 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import main.com.botka.data.set.visualization.api.ExecuteInMainThreadManager;
+import main.com.botka.data.set.visualization.api.IRunOnMainThread;
+import main.com.botka.data.set.visualization.api.data.DataSet;
+import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
+import main.com.botka.data.set.visualization.api.readers.FileReader;
+import main.com.botka.data.set.visualization.api.render.engine.RenderEngine;
+import main.com.botka.data.set.visualization.api.sort.ArraySorter;
+import main.com.botka.data.set.visualization.api.sort.BubbleSort;
+import main.com.botka.data.set.visualization.api.sort.IFinishedListener;
+import main.com.botka.data.set.visualization.api.sort.SelectionSort;
+import main.com.botka.data.set.visualization.api.sort.Sort;
+import main.com.botka.data.set.visualization.api.sound.engine.Audio;
+import main.com.botka.data.set.visualization.api.sound.engine.AudioEngine;
+import main.com.botka.data.set.visualization.api.sound.engine.AudioFile;
+import main.com.botka.data.set.visualization.api.sound.engine.IAudioListener;
+import main.com.botka.data.set.visualization.api.sound.engine.IPlayAudio;
+import main.com.botka.data.set.visualization.api.step.StepOperation;
+import main.com.botka.data.set.visualization.api.visualizer.JavaFXVisualizer;
+import main.com.botka.data.set.visualization.api.visualizer.Visualizer;
 
 /**
  * Test driver with main method for the Javafx test implementation

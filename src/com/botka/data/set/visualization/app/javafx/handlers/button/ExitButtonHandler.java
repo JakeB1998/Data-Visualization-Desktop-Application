@@ -17,12 +17,12 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.botka.data.set.visualization.api.data.serialization.Deserializer;
-import com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 import com.botka.data.set.visualization.app.Savable;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import main.com.botka.data.set.visualization.api.data.serialization.Deserializer;
+import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 
 /**
  * <insert class description here>

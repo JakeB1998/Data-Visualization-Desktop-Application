@@ -10,11 +10,10 @@ package com.botka.data.set.visualization.app;
 
 import java.io.File;
 
-import com.botka.data.set.visualization.api.sound.engine.IAudioListener;
-import com.botka.data.set.visualization.api.sound.engine.IPlayAudio;
-
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import main.com.botka.data.set.visualization.api.sound.engine.IAudioListener;
+import main.com.botka.data.set.visualization.api.sound.engine.IPlayAudio;
 
 /**
  * 

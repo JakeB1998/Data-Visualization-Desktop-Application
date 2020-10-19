@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import com.botka.data.set.visualization.api.loggers.ConsoleLogger;
+import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 
 /**
  * 

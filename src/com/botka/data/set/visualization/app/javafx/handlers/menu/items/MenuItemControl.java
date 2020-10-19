@@ -8,7 +8,6 @@
  */
 package com.botka.data.set.visualization.app.javafx.handlers.menu.items;
 
-import com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 import com.botka.data.set.visualization.app.ControllerTransferCallback;
 import com.botka.data.set.visualization.app.javafx.components.NodeControls;
 import com.botka.data.set.visualization.app.javafx.handlers.FireEventListener;
@@ -17,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
+import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 
 /**
  * Wrapper class for menu item
