@@ -13,19 +13,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.botka.data.set.visualization.api.IRunOnMainThread;
-import com.botka.data.set.visualization.api.data.DataSet;
-import com.botka.data.set.visualization.api.data.DataPeekListener;
-import com.botka.data.set.visualization.api.loggers.ConsoleLogger;
-import com.botka.data.set.visualization.api.readers.FileReader;
-import com.botka.data.set.visualization.api.render.engine.RenderEngine;
-import com.botka.data.set.visualization.api.sort.BubbleSort;
-import com.botka.data.set.visualization.api.sort.IFinishedListener;
-import com.botka.data.set.visualization.api.step.StepOperation;
-import com.botka.data.set.visualization.api.util.ArrayUtil;
-import com.botka.data.set.visualization.api.util.IDGenerator;
-import com.botka.data.set.visualization.api.visualizer.JavaFXVisualizer;
-import com.botka.data.set.visualization.api.visualizer.Visualizer;
 import com.botka.data.set.visualization.app.javafx.components.FileChooserComponent;
 import com.botka.data.set.visualization.app.javafx.components.NodeControls;
 import com.botka.data.set.visualization.app.javafx.handlers.StageScaling;
@@ -54,6 +41,19 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import main.com.botka.data.set.visualization.api.IRunOnMainThread;
+import main.com.botka.data.set.visualization.api.data.DataPeekListener;
+import main.com.botka.data.set.visualization.api.data.DataSet;
+import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
+import main.com.botka.data.set.visualization.api.readers.FileReader;
+import main.com.botka.data.set.visualization.api.render.engine.RenderEngine;
+import main.com.botka.data.set.visualization.api.sort.BubbleSort;
+import main.com.botka.data.set.visualization.api.sort.IFinishedListener;
+import main.com.botka.data.set.visualization.api.step.StepOperation;
+import main.com.botka.data.set.visualization.api.util.ArrayUtil;
+import main.com.botka.data.set.visualization.api.util.IDGenerator;
+import main.com.botka.data.set.visualization.api.visualizer.JavaFXVisualizer;
+import main.com.botka.data.set.visualization.api.visualizer.Visualizer;
 
 /**
  * <insert class description here>

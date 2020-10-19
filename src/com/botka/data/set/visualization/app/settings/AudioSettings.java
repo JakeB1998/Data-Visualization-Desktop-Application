@@ -8,8 +8,8 @@
  */
 package com.botka.data.set.visualization.app.settings;
 
-import com.botka.data.set.visualization.api.sound.engine.Audio;
-import com.botka.data.set.visualization.api.sound.engine.AudioFile;
+import main.com.botka.data.set.visualization.api.sound.engine.Audio;
+import main.com.botka.data.set.visualization.api.sound.engine.AudioFile;
 
 /**
  * <insert class description here>

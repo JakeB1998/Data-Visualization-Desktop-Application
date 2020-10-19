@@ -15,18 +15,6 @@ import java.math.RoundingMode;
 import java.net.URL;
 import java.util.Random;
 
-import com.botka.data.set.visualization.api.ExecuteInMainThreadManager;
-import com.botka.data.set.visualization.api.IRunOnMainThread;
-import com.botka.data.set.visualization.api.data.DataSet;
-import com.botka.data.set.visualization.api.readers.FileReader;
-import com.botka.data.set.visualization.api.render.engine.RenderEngine;
-import com.botka.data.set.visualization.api.sort.ArraySorter;
-import com.botka.data.set.visualization.api.sort.BubbleSort;
-import com.botka.data.set.visualization.api.sort.IFinishedListener;
-import com.botka.data.set.visualization.api.sound.engine.AudioEngine;
-import com.botka.data.set.visualization.api.step.StepOperation;
-import com.botka.data.set.visualization.api.visualizer.JavaFXVisualizer;
-import com.botka.data.set.visualization.api.visualizer.Visualizer;
 import com.botka.data.set.visualization.app.resources.ResourceManager;
 
 import javafx.application.Application;
@@ -37,6 +25,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
+import main.com.botka.data.set.visualization.api.ExecuteInMainThreadManager;
+import main.com.botka.data.set.visualization.api.IRunOnMainThread;
+import main.com.botka.data.set.visualization.api.data.DataSet;
+import main.com.botka.data.set.visualization.api.readers.FileReader;
+import main.com.botka.data.set.visualization.api.render.engine.RenderEngine;
+import main.com.botka.data.set.visualization.api.sort.ArraySorter;
+import main.com.botka.data.set.visualization.api.sort.BubbleSort;
+import main.com.botka.data.set.visualization.api.sort.IFinishedListener;
+import main.com.botka.data.set.visualization.api.sound.engine.AudioEngine;
+import main.com.botka.data.set.visualization.api.step.StepOperation;
+import main.com.botka.data.set.visualization.api.visualizer.JavaFXVisualizer;
+import main.com.botka.data.set.visualization.api.visualizer.Visualizer;
 
 /**
  * This is the drive for the main tool with full UI. This will use the JavaFX
@@ -45,21 +45,19 @@ import javafx.stage.Stage;
  * @author Jake Botka
  *
  */
-public class AppDriver extends Application
-		implements IRunOnMainThread, IFinishedListener {
+public class AppDriver extends Application implements IRunOnMainThread, IFinishedListener {
 
-	public static final ExecuteInMainThreadManager MANAGER = ExecuteInMainThreadManager
-			.getInstance();
+	public static final ExecuteInMainThreadManager MANAGER = ExecuteInMainThreadManager.getInstance();
 	private static Visualizer visualizer = null;
 	public static final AudioEngine AUDIO_ENGINE = new AudioEngine();
-	public static final ApplicationSettings APP_SETTINGS = new ApplicationSettings(
-			null);
+	public static final ApplicationSettings APP_SETTINGS = new ApplicationSettings(null);
 
 	/**
 	 * @param command line arguments
 	 */
 	public static void main(String[] args) {
 		Application.launch(args); // calls the start method below
+		
 
 	}
 
@@ -71,15 +69,12 @@ public class AppDriver extends Application
 	@Override
 	public void start(Stage stage) throws Exception {
 		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(
-					ResourceManager.getResourceURL("app.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(ResourceManager.getResourceURL("app.fxml"));
 			Parent root = (Parent) fxmlLoader.load();
-			MainController controller = fxmlLoader
-					.<MainController>getController();
+			MainController controller = fxmlLoader.<MainController>getController();
 			Scene scene = null;
 			scene = new Scene(root);
-			scene.getStylesheets().add(ResourceManager
-					.getResourceURL("spread-sheet.css").toExternalForm());
+			scene.getStylesheets().add(ResourceManager.getResourceURL("spread-sheet.css").toExternalForm());
 			controller.setParams(stage, scene);
 
 			stage.setScene(scene);
