@@ -8,32 +8,33 @@
  */
 package com.botka.data.set.visualization.app.javafx.components;
 
+import com.botka.data.set.visualization.app.ImmutableID;
+
 /**
  * Base class for all components
  *
  * @author Jake Botka
  *
  */
-public abstract class Component
-{
+public abstract class Component implements ImmutableID {
 
 	protected static final int UNIQUE_ID_LENGTH = 8;
-	private int mID;
+
 	/**
 	 * 
 	 */
-	public Component(int id)
-	{
-		this.mID = id;
+	public Component() {
+
 	}
-	
+
 	public abstract int getStaticID();
+
 	public abstract int getUniqueID();
+
 	/**
 	 * 
 	 */
-	public String toString()
-	{
+	public String toString() {
 		return super.toString();
 	}
 

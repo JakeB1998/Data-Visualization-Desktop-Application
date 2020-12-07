@@ -13,7 +13,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 
 /**
  * 
@@ -47,12 +46,11 @@ public class NetworkInterface {
 			final URLConnection conn = url.openConnection();
 			conn.connect();
 			conn.getInputStream().close();
-			ConsoleLogger.Logger.log(JavaFXMainDriver.class, "connected to internet", true);
 			return true;
 		} catch (MalformedURLException e) {
 			throw new RuntimeException(e);
 		} catch (IOException e) {
-			ConsoleLogger.Logger.log(JavaFXMainDriver.class, "Not connected to internet", true);
+			e.printStackTrace();
 		}
 		return false;
 	}

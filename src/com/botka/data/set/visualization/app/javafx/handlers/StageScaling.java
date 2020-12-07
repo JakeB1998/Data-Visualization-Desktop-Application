@@ -10,7 +10,7 @@ package com.botka.data.set.visualization.app.javafx.handlers;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
+
 
 /**
  * Class to host and handle scaling of the main stage (screen).
