@@ -16,7 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
+
 
 /**
  * Wrapper class for menu item
@@ -40,8 +40,7 @@ public class MenuItemControl extends NodeControls implements EventHandler<Action
 		this.mFireEventCallback = callback;
 		if (this.mMenuItem != null)
 			this.mMenuItem.setOnAction(this);
-		else
-			ConsoleLogger.Logger.log(getClass(), "Button Control is null", true);
+		
 	}
 
 	/**

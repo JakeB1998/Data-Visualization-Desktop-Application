@@ -44,14 +44,12 @@ import javafx.stage.Stage;
 import main.com.botka.data.set.visualization.api.IRunOnMainThread;
 import main.com.botka.data.set.visualization.api.data.DataPeekListener;
 import main.com.botka.data.set.visualization.api.data.DataSet;
-import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 import main.com.botka.data.set.visualization.api.readers.FileReader;
 import main.com.botka.data.set.visualization.api.render.engine.RenderEngine;
 import main.com.botka.data.set.visualization.api.sort.BubbleSort;
 import main.com.botka.data.set.visualization.api.sort.IFinishedListener;
 import main.com.botka.data.set.visualization.api.step.StepOperation;
 import main.com.botka.data.set.visualization.api.util.ArrayUtil;
-import main.com.botka.data.set.visualization.api.util.IDGenerator;
 import main.com.botka.data.set.visualization.api.visualizer.JavaFXVisualizer;
 import main.com.botka.data.set.visualization.api.visualizer.Visualizer;
 
@@ -104,7 +102,6 @@ public class MainController implements IRunOnMainThread, IFinishedListener,
 
 	@FXML
 	public void initialize() throws InterruptedException {
-		ConsoleLogger.Logger.log(getClass(), "FXML documenet has initialized", true);
 		FILE_SYSTEM_INTERFACE.addFileFilter(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
 
 		exitBtn.setOnAction((EventHandler<ActionEvent>) new ExitButtonHandler());
@@ -141,7 +138,7 @@ public class MainController implements IRunOnMainThread, IFinishedListener,
 	 */
 	private void init() {
 		final StageScaling stageScaling = new StageScaling();
-		DataSet<Double> dataSet = new DataSet(0);
+		DataSet<Double> dataSet = new DataSet();
 
 		// insert data here start
 		Random ran = new Random();
@@ -194,22 +191,23 @@ public class MainController implements IRunOnMainThread, IFinishedListener,
 	 * @param scene
 	 */
 	public void setParams(Stage stage, Scene scene) {
-		ConsoleLogger.Logger.log(getClass(), "ParamsSet", true);
 		this.mStage = stage;
 		this.mScene = scene;
 		this.init();
 
 	}
 
+	/**
+	 * Runs code on main thread. Ussually called from a thread that is not the main thread or the application thread.
+	 */
 	@Override
 	public void runOnMainThread(Runnable run) {
-		Platform.runLater(run); // javafx implementation of communicating to
-								// main thread
+		Platform.runLater(run); // javafx implementation of communicating to main thread
 
 	}
 
 	/**
-	 * 
+	 * Callback on when the visalization is vinished.
 	 */
 	@Override
 	public void onFinished() {
@@ -220,12 +218,11 @@ public class MainController implements IRunOnMainThread, IFinishedListener,
 	}
 
 	/**
-	 * 
+	 * Peak at a data value at a certain index of the dataset.
 	 */
 	@Override
 	public void onPeak(int index, Number data) {
 		String value = Double.toString(data.doubleValue());
-		ConsoleLogger.Logger.log(getClass(), "Data peeked: " + value, true);
 		mainDetailsView.getChildren()
 				.add(new Label("Index: " + String.valueOf(index) + " Value: " + value));
 		scrollPane.setVvalue(scrollPane.getVmax());
@@ -240,8 +237,6 @@ public class MainController implements IRunOnMainThread, IFinishedListener,
 			if (type.equals(File.class)) {
 				File transferFile = null;
 				transferFile = (File) data;
-				ConsoleLogger.Logger.log(getClass(),
-						"File transfered path: " + transferFile.getAbsolutePath(), true);
 				this.insertNewData(transferFile);
 			}
 		}

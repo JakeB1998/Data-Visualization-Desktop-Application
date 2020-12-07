@@ -38,7 +38,6 @@ import javafx.stage.Stage;
 import main.com.botka.data.set.visualization.api.ExecuteInMainThreadManager;
 import main.com.botka.data.set.visualization.api.IRunOnMainThread;
 import main.com.botka.data.set.visualization.api.data.DataSet;
-import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
 import main.com.botka.data.set.visualization.api.readers.FileReader;
 import main.com.botka.data.set.visualization.api.render.engine.RenderEngine;
 import main.com.botka.data.set.visualization.api.sort.ArraySorter;
@@ -91,7 +90,7 @@ public class JavaFXMainDriver extends Application implements IRunOnMainThread, I
 			root.getChildren().add(canvas);
 			scene = new Scene(root);
 
-			DataSet<Double> dataSet = new DataSet(0);
+			DataSet<Double> dataSet = new DataSet();
 
 			// insert data here start
 			Random ran = new Random();
@@ -138,7 +137,7 @@ public class JavaFXMainDriver extends Application implements IRunOnMainThread, I
 	 */
 	public void option1(Stage stage, Scene scene, Canvas canvas) {
 
-		DataSet<Double> dataSet = new DataSet(0);
+		DataSet<Double> dataSet = new DataSet();
 
 		// inser data here start
 		Random ran = new Random();
@@ -196,7 +195,7 @@ public class JavaFXMainDriver extends Application implements IRunOnMainThread, I
 			FileReader reader = new FileReader(file);
 			DataSet<Double> dataset = null;
 			double[] arr = reader.readAllDoubles();
-			dataset = new DataSet<Double>(0);
+			dataset = new DataSet<Double>();
 			if (arr != null) {
 				for (double d : arr) {
 					dataset.add(new Double(d));

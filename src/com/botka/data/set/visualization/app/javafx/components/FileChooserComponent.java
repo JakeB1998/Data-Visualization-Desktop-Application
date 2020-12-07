@@ -12,7 +12,6 @@ import java.io.File;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import main.com.botka.data.set.visualization.api.util.IDGenerator;
 
 /**
  * File chooser component to handle interfacing with the computer's file system
@@ -20,110 +19,98 @@ import main.com.botka.data.set.visualization.api.util.IDGenerator;
  * @author Jake Botka
  *
  */
-public class FileChooserComponent extends Component
-{
-
-	private static final int STATIC_ID = 28483;
-	private final int UNIQUE_ID;
+public class FileChooserComponent extends Component {
 	private FileChooser mFileChooser;
-	
+
 	/**
 	 * 
 	 */
-	public FileChooserComponent()
-	{
+	public FileChooserComponent() {
 		this(new FileChooser());
 	}
-	
+
 	/**
 	 * 
 	 */
-	public FileChooserComponent(FileChooser fileChooser)
-	{
-		super((STATIC_ID));
-		UNIQUE_ID = IDGenerator.generateIntegerID(UNIQUE_ID_LENGTH);
+	public FileChooserComponent(FileChooser fileChooser) {
+		super();
 		this.setFileChooser(fileChooser);
 	}
-	
-	
-	public void addFileFilter(FileChooser.ExtensionFilter filter)
-	{
+
+	public void addFileFilter(FileChooser.ExtensionFilter filter) {
 		if (this.mFileChooser != null)
-			this.mFileChooser.getExtensionFilters().addAll( filter);
-		else
-		{
+			this.mFileChooser.getExtensionFilters().addAll(filter);
+		else {
 			this.mFileChooser = new FileChooser();
 			this.addFileFilter(filter);
 		}
 	}
-	
-	public FileChooser getFileChooser()
-	{
+
+	public FileChooser getFileChooser() {
 		return this.mFileChooser;
 	}
-	
-	public void setFileChooser(FileChooser fileChooser)
-	{
+
+	public void setFileChooser(FileChooser fileChooser) {
 		this.mFileChooser = fileChooser;
 	}
-	
-	public File accessFiles(Stage stage)
-	{
+
+	public File accessFiles(Stage stage) {
 		File file = null;
 		file = this.mFileChooser.showOpenDialog(stage);
 		return file;
 	}
-	
+
 	/**
 	 * 
 	 * @param directoryPath
 	 */
-	public void setDirectory(String directoryPath)
-	{
+	public void setDirectory(String directoryPath) {
 		File dir = new File(directoryPath);
 		if (dir.exists())
 			if (dir.isDirectory())
-				this.setDirectory(dir);	
+				this.setDirectory(dir);
 	}
-	
+
 	/**
 	 * 
 	 * @param directory
 	 */
-	public void setDirectory(File directory)
-	{
-		if (this.mFileChooser != null)
-		{
+	public void setDirectory(File directory) {
+		if (this.mFileChooser != null) {
 			this.mFileChooser.setInitialDirectory(directory);
-		}
-		else
-		{
+		} else {
 			this.mFileChooser = new FileChooser();
 			this.setDirectory(directory); // recall method
 		}
 	}
 
-	@Override
-	public int getStaticID()
-	{
-		return STATIC_ID;
-	}
-
-	@Override
-	public int getUniqueID()
-	{
-		// TODO Auto-generated method stub
-		return UNIQUE_ID;
-	}
 	
+
 	/**
 	 * @return
 	 */
-	public String toString()
-	{
+	public String toString() {
 		return super.toString();
 	}
-	
-	
+
+	/**
+	 * @return
+	 * 
+	 */
+	@Override
+	public int getStaticID() {
+		
+		return 0;
+	}
+
+	/**
+	 * @return
+	 * 
+	 */
+	@Override
+	public int getUniqueID() {
+		
+		return 0;
+	}
 
 }

@@ -22,7 +22,7 @@ import com.botka.data.set.visualization.app.Savable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import main.com.botka.data.set.visualization.api.data.serialization.Deserializer;
-import main.com.botka.data.set.visualization.api.loggers.ConsoleLogger;
+
 
 /**
  * <insert class description here>
@@ -62,7 +62,6 @@ public class ExitButtonHandler
 	public void handle(ActionEvent event) {
 		this.mEventCount.incrementAndGet();
 		this.save();
-		ConsoleLogger.Logger.log(getClass(), "Application qued to exit", true);
 		System.exit(0);
 	}
 
@@ -85,7 +84,7 @@ public class ExitButtonHandler
 						data = null;
 						fileIn = null;
 						this.mEventCount.set(nData);
-						ConsoleLogger.Logger.log(getClass(), "File contents read: " + nData, true);
+						
 					}
 
 				} catch (FileNotFoundException e) {
@@ -116,9 +115,7 @@ public class ExitButtonHandler
 				FileOutputStream fileOut = new FileOutputStream(file);
 				ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 				objectOut.writeObject(new Integer(this.mEventCount.get()));
-				ConsoleLogger.Logger.log(getClass(),
-						"Savable Interface Save method called: Object was save successfully.",
-						true);
+				
 				return true;
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
